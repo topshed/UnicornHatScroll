@@ -14,7 +14,9 @@ Installation
 ------------
 
 pip install unicornhat
+
 pip install bitarray
+
 git clone https://github.com/topshed/UnicornHatScroll
 
 Files

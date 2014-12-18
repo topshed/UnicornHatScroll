@@ -5,7 +5,7 @@ import unicornhat as UH
 from bitarray import bitarray
 import time
 #import letter definitions and mappings
-from uhscroll_letters import *
+from UHScroll_defs import *
 
 '''It assumes the Pi/hat will orientated with the long side of the Pi without any connectors on
 the bottom, i.e. the Hat will be rotated 90 degrees clockwise (assuming the "UNICORN HAT" label and 

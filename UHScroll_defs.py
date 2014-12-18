@@ -323,12 +323,12 @@ number_0=[x0,x1,x2,x3,x4,x5,x6,x7]
 
 # Number 1
 x0= bitarray('00000000')
-x1= bitarray('00111000')
-x2= bitarray('00011000')
-x3= bitarray('00011000')
-x4= bitarray('00011000')
-x5= bitarray('00011000')
-x6= bitarray('00011000')
+x1= bitarray('00011000')
+x2= bitarray('00001000')
+x3= bitarray('00001000')
+x4= bitarray('00001000')
+x5= bitarray('00001000')
+x6= bitarray('00011100')
 x7= bitarray('00000000')
 number_1=[x0,x1,x2,x3,x4,x5,x6,x7]
 
@@ -539,4 +539,5 @@ mapping['_'] = symbol_under
 any additional wide or narrow letters must be added to the appropriate list)'''
 
 narrows = [letter_I,letter_J,letter_T,symbol_em]
+super_narrow = [letter_space]
 wides = [letter_M,letter_W]

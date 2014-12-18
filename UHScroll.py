@@ -16,23 +16,35 @@ way round for easy reading'''
 
 flip = [7,6,5,4,3,2,1,0]
 
-def show_letter(letter,colour): #displays a single letter on th UH
+
+def show_letter(letter,colour,brightness): #displays a single letter on th UH
 	UH.rotation(270)		
 	for i in range(8):
 		for j in range(8):
 			if letter[j][i]:
-				UH.set_pixel(j,flip[i],colour,colour,colour)
+				if colour == 'red':
+					UH.set_pixel(j,flip[i],brightness,0,0)
+				elif colour == 'green':
+					UH.set_pixel(j,flip[i],0,brightness,0)
+				elif colour == 'blue':
+					UH.set_pixel(j,flip[i],0,0,brightness)
+				elif colour == 'white':
+					UH.set_pixel(j,flip[i],brightness,brightness,brightness)
+				elif colour == 'pink':
+					UH.set_pixel(j,flip[i],brightness,52,179)
+				elif colour == 'cyan':
+					UH.set_pixel(j,flip[i],0,brightness,brightness)
 			else:
 				UH.set_pixel(j,flip[i],0,0,0)
 
 	UH.show()
 
-def scroll_letter(letter,colour,speed): # scrolls a single letter across the UH
+def scroll_letter(letter,colour,brightness,speed): # scrolls a single letter across the UH
 	for i in range(8):
 		for p in range(6):
 			letter[i].insert(0,False)
 	for s in range(14):
-		show_letter(letter,colour)
+		show_letter(letter,colour,brightness)
 		time.sleep(speed)
 		for i in range(8):
 			letter[i].pop(0)
@@ -40,9 +52,9 @@ def scroll_letter(letter,colour,speed): # scrolls a single letter across the UH
 
 '''scrolling is achieved by redrawing the letter with a column of the bitarray shifted to the left and a new blank column
 added to the right'''
-def scroll_word(word,colour,speed): # scrolls a word across the UH
+def scroll_word(word,colour,brightness,speed): # scrolls a word across the UH
 	for s in range(len(word[0])):
-		show_letter(word,colour)
+		show_letter(word,colour,brightness)
 		time.sleep(speed)
 		for i in range(8):
 			word[i].pop(0)
@@ -66,6 +78,8 @@ def trim_letter(letter): #trims a char's bitarray so that it can be joined witho
 		trim[i].pop(5)
 		if letter in narrows:
 			trim[i].pop(0)
+		if letter in super_narrow:
+			trim[i].pop(0)
 	return trim
 
 def map_character(chr):
@@ -76,38 +90,19 @@ def map_character(chr):
 
 def load_message(message):
 	unicorn_message = []
+	message = '  ' + message # pad the message with a couple of spaces so it starts on the right
 	for ch in (range(len(message))):
 		unicorn_message.append(trim_letter(map_character(message[ch].upper())))
 		
 	return(unicorn_message)
-#for r in range(1000):
-#	show_letter(letter_L,255)
-#	time.sleep(0.001)
-#	show_letter(letter_K,255)
-#	time.sleep(0.001)
-#b = map_character('H')
-#print b
-#scroll_letter(letter_A,255,0.5)
-#scroll_letter(letter_B,255,0.5)
-#scroll_letter(letter_C,255,0.5)
-#hell = []
-#hell.append(trim_letter(letter_H))
-#hell.append(trim_letter(letter_E))
-#hell.append(trim_letter(letter_L))
-#hell.append(trim_letter(letter_L))
-#hell.append(trim_letter(letter_M))
-#hell.append(trim_letter(letter_B))
-#print hell
-#hello = load_message('HELLO')
-#print hello
-#test = make_word(hello)
-#print test
-#scroll_word(test,255,0.5)
-#scroll_word(make_word(load_message('titsjack')),255,0.2)
 
-def unicorn_scroll(text,colour,speed):
-	scroll_word(make_word(load_message(text)),colour,speed)
-
+def unicorn_scroll(text,colour,brightness,speed):
+	try:
+		scroll_word(make_word(load_message(text)),colour,brightness,speed)
+	except: 
+		print 'Enter unicorn_scroll(message,colour,brightness,speed) where '
+		print 'message is a string, colour is either red,white,blue,green,pink or cyan'
+		print 'brightness is a integer 0-255 and speed is the time between chars'
 	
 
 

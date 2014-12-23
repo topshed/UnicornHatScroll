@@ -1,3 +1,4 @@
+#V1.01
 ''' This python script provides the functions to display simple scrolling text on
 a Pimoroni Unicorn hat, and add-on board for the Raspberry Pi model B+'''
 
@@ -34,6 +35,10 @@ def show_letter(letter,colour,brightness): #displays a single letter on th UH
 					UH.set_pixel(j,flip[i],brightness,52,179)
 				elif colour == 'cyan':
 					UH.set_pixel(j,flip[i],0,brightness,brightness)
+				elif colour == 'yellow':
+					UH.set_pixel(j,flip[i],brightness,brightness,0)
+				elif colour == 'orange':
+					UH.set_pixel(j,flip[i],brightness,128,0)
 			else:
 				UH.set_pixel(j,flip[i],0,0,0)
 
@@ -101,7 +106,7 @@ def unicorn_scroll(text,colour,brightness,speed):
 		scroll_word(make_word(load_message(text)),colour,brightness,speed)
 	except: 
 		print 'Enter unicorn_scroll(message,colour,brightness,speed) where '
-		print 'message is a string, colour is either red,white,blue,green,pink or cyan'
+		print 'message is a string, colour is either red,white,blue,green,pink, yellow, orange or cyan'
 		print 'brightness is a integer 0-255 and speed is the time between chars'
 	
 

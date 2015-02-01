@@ -1,7 +1,7 @@
 Unicorn Hat Scrolling text
 ==========================
 
-This Python provides a simple way to generate a scrolling text message on a [Pimoroni Unicorn Hat] (http://shop.pimoroni.com/products/unicorn-hat).
+This Python provides a simple way to generate a scrolling text message on a [Pimoroni Unicorn Hat] (http://shop.pimoroni.com/products/unicorn-hat). To see some examples, have a look at my [blog] (http://richardhayler.blogspot.com/2014/12/unicorn-hat-text-scroller.html)
 
 Requirements
 ------------

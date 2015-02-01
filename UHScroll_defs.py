@@ -332,7 +332,7 @@ x6= bitarray('00011100')
 x7= bitarray('00000000')
 number_1=[x0,x1,x2,x3,x4,x5,x6,x7]
 
-# Number Z
+# Number 2
 x0= bitarray('00000000')
 x1= bitarray('00111100')
 x2= bitarray('00000100')
@@ -486,6 +486,117 @@ x6= bitarray('00111100')
 x7= bitarray('00000000')
 symbol_under=[x0,x1,x2,x3,x4,x5,x6,x7]
 
+# Symbol hash
+x0= bitarray('00000000')
+x1= bitarray('00101000')
+x2= bitarray('01111100')
+x3= bitarray('00101000')
+x4= bitarray('00101000')
+x5= bitarray('01111100')
+x6= bitarray('00101000')
+x7= bitarray('00000000')
+symbol_hash=[x0,x1,x2,x3,x4,x5,x6,x7]
+
+# Symbol plus
+x0= bitarray('00000000')
+x1= bitarray('00000000')
+x2= bitarray('00000000')
+x3= bitarray('00001000')
+x4= bitarray('00011100')
+x5= bitarray('00001000')
+x6= bitarray('00000000')
+x7= bitarray('00000000')
+symbol_plus=[x0,x1,x2,x3,x4,x5,x6,x7]
+
+# Symbol equals
+x0= bitarray('00000000')
+x1= bitarray('00000000')
+x2= bitarray('00000000')
+x3= bitarray('00111100')
+x4= bitarray('00000000')
+x5= bitarray('00111100')
+x6= bitarray('00000000')
+x7= bitarray('00000000')
+symbol_equals=[x0,x1,x2,x3,x4,x5,x6,x7]
+
+# Symbol dollar
+x0= bitarray('00000000')
+x1= bitarray('00111100')
+x2= bitarray('00100000')
+x3= bitarray('00111100')
+x4= bitarray('00010100')
+x5= bitarray('00111100')
+x6= bitarray('00010000')
+x7= bitarray('00000000')
+symbol_dollar=[x0,x1,x2,x3,x4,x5,x6,x7]
+
+# Symbol ast
+x0= bitarray('00000000')
+x1= bitarray('00000000')
+x2= bitarray('01010100')
+x3= bitarray('00111000')
+x4= bitarray('01111100')
+x5= bitarray('00111000')
+x6= bitarray('01010100')
+x7= bitarray('00000000')
+symbol_ast=[x0,x1,x2,x3,x4,x5,x6,x7]
+
+# Symbol cb
+x0= bitarray('00000000')
+x1= bitarray('00010000')
+x2= bitarray('00001000')
+x3= bitarray('00000100')
+x4= bitarray('00000100')
+x5= bitarray('00001000')
+x6= bitarray('00010000')
+x7= bitarray('00000000')
+symbol_cb=[x0,x1,x2,x3,x4,x5,x6,x7]
+
+# Symbol ob
+x0= bitarray('00000000')
+x1= bitarray('00000100')
+x2= bitarray('00001000')
+x3= bitarray('00010000')
+x4= bitarray('00010000')
+x5= bitarray('00001000')
+x6= bitarray('00000100')
+x7= bitarray('00000000')
+symbol_ob=[x0,x1,x2,x3,x4,x5,x6,x7]
+
+# Symbol dbq
+x0= bitarray('00000000')
+x1= bitarray('00101000')
+x2= bitarray('00101000')
+x3= bitarray('00000000')
+x4= bitarray('00000000')
+x5= bitarray('00000000')
+x6= bitarray('00000000')
+x7= bitarray('00000000')
+symbol_dbq=[x0,x1,x2,x3,x4,x5,x6,x7]
+
+
+# Symbol gt
+x0= bitarray('00000000')
+x1= bitarray('00000000')
+x2= bitarray('00110000')
+x3= bitarray('00011000')
+x4= bitarray('00000100')
+x5= bitarray('00011000')
+x6= bitarray('00110000')
+x7= bitarray('00000000')
+symbol_gt=[x0,x1,x2,x3,x4,x5,x6,x7]
+
+# Symbol lt
+x0= bitarray('00000000')
+x1= bitarray('00000000')
+x2= bitarray('00001100')
+x3= bitarray('00011000')
+x4= bitarray('00100000')
+x5= bitarray('00011000')
+x6= bitarray('00001100')
+x7= bitarray('00000000')
+symbol_lt=[x0,x1,x2,x3,x4,x5,x6,x7]
+
 '''The mapping dictionary is called to translate a character from the message to be displayed
 into the relevant bitarray'''
 
@@ -533,11 +644,23 @@ mapping['?'] = symbol_qm
 mapping['!'] = symbol_em
 mapping[' '] = letter_space
 mapping['_'] = symbol_under
+mapping['#'] = symbol_hash
+mapping['+'] = symbol_plus
+mapping['='] = symbol_equals
+
+mapping['$'] = symbol_dollar
+mapping['"'] = symbol_dbq
+mapping[')'] = symbol_cb
+mapping['('] = symbol_ob
+mapping['*'] = symbol_ast
+mapping['>'] = symbol_gt
+mapping['<'] = symbol_lt
+
 
 '''Characters are normally 4x6 high although some (e.g m, w) are wider and others are narrower 
 (e.g. !, I, J). In order for these to be proiperly spaced in a word (i.e seperated by 2 blank columns,
 any additional wide or narrow letters must be added to the appropriate list)'''
 
-narrows = [letter_I,letter_J,letter_T,symbol_em]
+narrows = [symbol_plus,letter_I,letter_J,letter_T,symbol_em, symbol_ob, symbol_cb,symbol_plus]
 super_narrow = [letter_space]
-wides = [letter_M,letter_W]
+wides = [letter_M,letter_W,symbol_ast,symbol_hash]

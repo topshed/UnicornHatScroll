@@ -76,15 +76,17 @@ def trim_letter(letter): #trims a char's bitarray so that it can be joined witho
 	trim = []
 	for c in range(len(letter)):
 		trim.append(letter[c].copy())
-	for i in range(8):
-		if letter not in wides:
+	if letter not in super_wides:
+		for i in range(8):
+			if letter not in wides:
+				trim[i].pop(0)
 			trim[i].pop(0)
-		trim[i].pop(0)
-		trim[i].pop(5)
-		if letter in narrows:
-			trim[i].pop(0)
-		if letter in super_narrow:
-			trim[i].pop(0)
+			trim[i].pop(5)
+			if letter in narrows:
+				trim[i].pop(0)
+			if letter in super_narrow:
+				trim[i].pop(0)
+				
 	return trim
 
 def map_character(chr):
@@ -96,18 +98,28 @@ def map_character(chr):
 def load_message(message):
 	unicorn_message = []
 	message = '  ' + message # pad the message with a couple of spaces so it starts on the right
+	skip = 0
 	for ch in (range(len(message))):
-		unicorn_message.append(trim_letter(map_character(message[ch].upper())))
+		#print message[ch]
+		if skip != 0:
+			skip-=1
+		else:
+			if message[ch] == '~':
+				spec = message[ch+1] + message[ch+2] + message[ch+3] + message[ch+4] + message[ch+5]
+				unicorn_message.append(trim_letter(map_character(spec)))
+				skip = 5
+			else:
+				unicorn_message.append(trim_letter(map_character(message[ch].upper())))
 		
 	return(unicorn_message)
 
 def unicorn_scroll(text,colour,brightness,speed):
-	try:
-		scroll_word(make_word(load_message(text)),colour,brightness,speed)
-	except: 
-		print 'Enter unicorn_scroll(message,colour,brightness,speed) where '
-		print 'message is a string, colour is either red,white,blue,green,pink, yellow, orange or cyan'
-		print 'brightness is a integer 0-255 and speed is the time between chars'
+	#try:
+	scroll_word(make_word(load_message(text)),colour,brightness,speed)
+	#except: 
+		#print 'Enter unicorn_scroll(message,colour,brightness,speed) where '
+		#print 'message is a string, colour is either red,white,blue,green,pink, yellow, orange or cyan'
+		#print 'brightness is a integer 0-255 and speed is the time between chars'
 	
 
 

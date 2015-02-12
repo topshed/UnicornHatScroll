@@ -597,6 +597,39 @@ x6= bitarray('00001100')
 x7= bitarray('00000000')
 symbol_lt=[x0,x1,x2,x3,x4,x5,x6,x7]
 
+# Special hart
+x0= bitarray('00000000')
+x1= bitarray('01100110')
+x2= bitarray('11111111')
+x3= bitarray('11111111')
+x4= bitarray('11111111')
+x5= bitarray('01111110')
+x6= bitarray('00111100')
+x7= bitarray('00011000')
+special_hart=[x0,x1,x2,x3,x4,x5,x6,x7]
+
+# Special smilie
+x0= bitarray('00111100')
+x1= bitarray('01000010')
+x2= bitarray('10100101')
+x3= bitarray('10000001')
+x4= bitarray('10100101')
+x5= bitarray('10011001')
+x6= bitarray('01000010')
+x7= bitarray('00111100')
+special_smilie=[x0,x1,x2,x3,x4,x5,x6,x7]
+
+# Special degrees
+x0= bitarray('00000000')
+x1= bitarray('00011100')
+x2= bitarray('00010100')
+x3= bitarray('00011100')
+x4= bitarray('00000000')
+x5= bitarray('00000000')
+x6= bitarray('00000000')
+x7= bitarray('00000000')
+special_degrees=[x0,x1,x2,x3,x4,x5,x6,x7]
+
 '''The mapping dictionary is called to translate a character from the message to be displayed
 into the relevant bitarray'''
 
@@ -655,6 +688,9 @@ mapping['('] = symbol_ob
 mapping['*'] = symbol_ast
 mapping['>'] = symbol_gt
 mapping['<'] = symbol_lt
+mapping['heart'] = special_hart
+mapping['smile'] = special_smilie
+mapping['degrs'] = special_degrees
 
 
 '''Characters are normally 4x6 high although some (e.g m, w) are wider and others are narrower 
@@ -662,5 +698,7 @@ mapping['<'] = symbol_lt
 any additional wide or narrow letters must be added to the appropriate list)'''
 
 narrows = [symbol_plus,letter_I,letter_J,letter_T,symbol_em, symbol_ob, symbol_cb,symbol_plus]
-super_narrow = [letter_space]
-wides = [letter_M,letter_W,symbol_ast,symbol_hash]
+super_narrow = [letter_space,special_degrees]
+wides = [letter_M,letter_W,symbol_ast,symbol_hash,special_smilie, special_hart]
+super_wides = [special_smilie, special_hart]
+specials = ['~heart','~smile','~degrs']

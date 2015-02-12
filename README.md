@@ -48,3 +48,18 @@ unicorn_scroll(text,colour,brightness,speed)
 ```python
 unicorn_scroll('hello world','red',255,0.1)
 ```
+Special Symbols
+---------------
+
+There are 3 special (non-keyboard) symbols available: a heart, a smilie and a degrees symbol.
+These are used by prefixing their 5 character name with a tilde (~).
+
+For a smile use ~smilie
+For a heart use (you guessed it) ~heart
+For a degrees use ~degrs (for best resulst don't leave a space between the preceeding number and the symbol)
+
+*example:*
+
+```python
+unicorn_scroll('I ~heart unicorns','pink',255,0.1)
+unicorn_scroll('It is 25~degrsc','blue',255,0.5)

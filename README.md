@@ -55,8 +55,10 @@ There are 3 special (non-keyboard) symbols available: a heart, a smilie and a de
 These are used by prefixing their 5 character name with a tilde (~).
 
 For a smile use ~smilie
+
 For a heart use (you guessed it) ~heart
-For a degrees use ~degrs (for best resulst don't leave a space between the preceeding number and the symbol)
+
+For a degrees use ~degrs (for best results, don't leave a space between the preceeding number and the symbol)
 
 *example:*
 
